@@ -31,7 +31,7 @@ export const useEventStore = defineStore('event', {
         name: "Sarah's and John's Wedding",
         date: '2024-08-04',
         location: 'High Garden Hotel',
-        image: '/assets/images/wedding.jpg',
+        image: 'src/assets/pic/wedding.jpg',
         guests: [
           {
             id: 1,

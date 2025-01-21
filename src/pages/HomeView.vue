@@ -8,7 +8,7 @@
     <h2>Upcoming Events</h2>
     <div class="event-card" v-for="event in events" :key="event.id" @click="goToEvent(event.id)">
       <div class="event-card-image">
-        <q-img :src="event.image" />
+        <q-img :src="event.image" alt="Wedding image" />
       </div>
       <div class="event-card-content">
         <h3 class="event-title">{{ event.name }}</h3>
@@ -53,7 +53,7 @@ export default defineComponent({
       ...event,
       guests: event.guests || [],
     }))
-
+    console.log(events)
     const goToEvent = async (id: number) => {
       await router.push(`/event/${id}`)
     }
