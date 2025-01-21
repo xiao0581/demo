@@ -1,12 +1,5 @@
 <template>
-  <div class="">
-    <h4>Login side......</h4>
-  </div>
+  <div class=""></div>
 </template>
-<script setup lang="ts">
-
-
-</script>
-<style lang="less" scoped>
-
-</style>
+<script setup lang="ts"></script>
+<style lang="less" scoped></style>
