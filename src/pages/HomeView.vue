@@ -49,10 +49,9 @@ export default defineComponent({
     const eventStore = useEventStore()
     const router = useRouter()
 
-    // Fetching events from the store
     const events = eventStore.events.map((event) => ({
       ...event,
-      guests: event.guests || [], // Ensure guests array exists
+      guests: event.guests || [],
     }))
 
     const goToEvent = async (id: number) => {

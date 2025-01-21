@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 
-// 定义接口类型
 interface Guest {
   id: number
   name: string
@@ -72,7 +71,7 @@ export const useEventStore = defineStore('event', {
           { id: 4, type: 'video', url: '/assets/videos/memory4.mp4' },
         ],
       },
-    ] as Event[], // 明确类型
+    ] as Event[],
   }),
   actions: {
     getEventById(id: number): Event | undefined {

@@ -56,7 +56,6 @@ import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useEventStore } from '../stores/eventstores'
 
-// 定义接口类型
 interface Guest {
   id: number
   name: string
@@ -75,18 +74,14 @@ export default defineComponent({
     const route = useRoute()
     const eventStore = useEventStore()
 
-    // 获取当前事件 ID
     const eventId = parseInt(route.params.id as string)
 
-    // 通过事件 ID 获取事件数据
     const event = computed(() => eventStore.getEventById(eventId))
 
-    // 查看参与者信息
     const viewGuestProfile = (guest: Guest) => {
       alert(`Viewing profile of ${guest.name}`)
     }
 
-    // 查看记忆信息
     const viewMemory = (memory: Memory) => {
       alert(`Viewing memory: ${memory.url}`)
     }
