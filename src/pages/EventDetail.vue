@@ -65,7 +65,7 @@ interface Guest {
 
 interface Memory {
   id: number
-  type: string // "image" | "video"
+  type: string
   url: string
 }
 

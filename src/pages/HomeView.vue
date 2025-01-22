@@ -64,19 +64,49 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.home-container {
-  text-align: center;
-  margin: 20px 0;
+.homecontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(to bottom, rgba(74, 78, 105, 0.7), rgba(74, 78, 105, 0.7)),
+    url('src/assets/pic/createBackgroundPic.png');
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 210px;
+  padding-top: 4rem;
+  gap: 1rem;
 }
 
-.home-title {
-  font-size: 24px;
+.hometitle {
+  font-size: 1.7rem;
   font-weight: bold;
-  margin-bottom: 16px;
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+  z-index: 10;
+  margin: 0;
 }
 
-.home-button {
-  margin-top: 10px;
+.homebutton {
+  background-color: #6a7bff;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 5rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  z-index: 10;
+  margin: 0;
+  width: 350px;
+  height: 10px;
+}
+
+.homebutton:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 .events-section {
