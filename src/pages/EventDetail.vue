@@ -1,6 +1,7 @@
 <template>
   <q-page class="event-details-page">
     <div class="event-header">
+      <q-btn flat round icon="arrow_back_ios" color="primary" class="back-btn" to="/" />
       <q-img
         :src="event?.image"
         alt="Event Banner"
@@ -14,7 +15,7 @@
     </div>
 
     <div class="event-section">
-      <h2>Guests</h2>
+      <h5>Our guests</h5>
       <q-list>
         <q-item
           v-for="guest in event?.guests"
@@ -141,5 +142,16 @@ export default defineComponent({
   object-fit: cover;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.back-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
 }
 </style>

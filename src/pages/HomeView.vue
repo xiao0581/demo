@@ -5,13 +5,13 @@
   </div>
 
   <div class="events-section">
-    <h2>Upcoming Events</h2>
+    <h2>Celebration in 2 days</h2>
     <div class="event-card" v-for="event in events" :key="event.id" @click="goToEvent(event.id)">
       <div class="event-card-image">
         <q-img :src="event.image" alt="Wedding image" />
       </div>
       <div class="event-card-content">
-        <h3 class="event-title">{{ event.name }}</h3>
+        <h5 class="event-title">{{ event.name }}</h5>
         <div class="event-details">
           <p class="event-time"><q-icon name="schedule" /> {{ event.date }}</p>
           <p class="event-location"><q-icon name="place" /> {{ event.location }}</p>
@@ -19,7 +19,7 @@
         <div class="event-guests">
           <div class="guest-avatars">
             <q-avatar v-for="guest in event.guests.slice(0, 5)" :key="guest.id" size="32px">
-              <q-img :src="guest.avatar" />
+              <q-img :src="guest.avatar" alt="gest avatar" />
             </q-avatar>
             <span class="additional-guests" v-if="event.guests.length > 5"
               >+{{ event.guests.length - 5 }}</span
@@ -27,13 +27,12 @@
           </div>
           <p class="all-guests">View all guests ></p>
         </div>
-        <q-btn
-          unelevated
-          rounded
-          class="preview-button"
-          label="Catch the celebration vibe with a quick preview"
-          icon="arrow_forward"
-        />
+        <div class="custom-preview-button">
+          <span class="button-text">Catch the celebration vibe with a quick preview</span>
+          <div class="button-icon">
+            <q-icon name="double_arrow" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -49,11 +48,22 @@ export default defineComponent({
     const eventStore = useEventStore()
     const router = useRouter()
 
-    const events = eventStore.events.map((event) => ({
-      ...event,
-      guests: event.guests || [],
-    }))
+    const today = new Date()
+    const dayAfterTomorrow = new Date()
+    dayAfterTomorrow.setDate(today.getDate() + 2)
+
+    const events = eventStore.events
+      .map((event) => ({
+        ...event,
+        guests: event.guests || [],
+      }))
+      .filter((event) => {
+        const eventDate = new Date(event.date)
+        return eventDate >= today && eventDate < dayAfterTomorrow
+      })
+
     console.log(events)
+
     const goToEvent = async (id: number) => {
       await router.push(`/event/${id}`)
     }
@@ -135,9 +145,10 @@ h2 {
 }
 
 .event-card-image {
-  width: 100%;
   height: 180px;
   overflow: hidden;
+  border-radius: 10%;
+  margin: 16px 16px;
 }
 
 .event-card-image img {
@@ -151,9 +162,10 @@ h2 {
 }
 
 .event-title {
+  margin-top: -8px;
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .event-details {
@@ -161,7 +173,13 @@ h2 {
   flex-direction: column;
   font-size: 14px;
   color: #757575;
-  margin-bottom: 12px;
+  margin-bottom: 0;
+}
+.event-time {
+  margin-bottom: 0;
+}
+.event-location {
+  margin-bottom: 0;
 }
 
 .event-details q-icon {
@@ -173,7 +191,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 2px;
 }
 
 .guest-avatars {
@@ -197,13 +215,48 @@ h2 {
   cursor: pointer;
 }
 
-.preview-button {
+.custom-preview-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  background-color: #42a5f5;
-  color: white;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #4a4e69;
+  border: 2px solid #6a7bff;
+  border-radius: 30px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.preview-button:hover {
-  background-color: #1e88e5;
+.button-text {
+  white-space: nowrap;
+}
+
+.button-icon {
+  position: absolute;
+  top: 50%;
+  font-size: 23px;
+  right: -2px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6a7bff;
+  color: white;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  transition: all 0.3s ease;
+}
+
+.custom-preview-button:hover {
+  background-color: #f3f4f6;
+}
+
+.custom-preview-button:hover .button-icon {
+  background-color: #4a63d9;
 }
 </style>

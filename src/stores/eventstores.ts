@@ -29,7 +29,7 @@ export const useEventStore = defineStore('event', {
       {
         id: 1,
         name: "Sarah's and John's Wedding",
-        date: '2024-08-04',
+        date: '2025-01-24',
         location: 'High Garden Hotel',
         image: 'src/assets/pic/wedding.jpg',
         guests: [
@@ -37,13 +37,37 @@ export const useEventStore = defineStore('event', {
             id: 1,
             name: 'Evelyn Carter',
             role: 'Bride’s family',
-            avatar: '/assets/images/guest1.jpg',
+            avatar: 'src/assets/pic/avatar1.jpg',
           },
           {
             id: 2,
             name: 'Liam Hayes',
             role: 'Bride’s family',
-            avatar: '/assets/images/guest2.jpg',
+            avatar: 'src/assets/pic/avatar2.jpg',
+          },
+          {
+            id: 3,
+            name: 'Liam Hayes',
+            role: 'Bride’s family',
+            avatar: 'src/assets/pic/avatar2.jpg',
+          },
+          {
+            id: 4,
+            name: 'Liam Hayes',
+            role: 'Bride’s family',
+            avatar: 'src/assets/pic/avatar2.jpg',
+          },
+          {
+            id: 5,
+            name: 'Liam Hayes',
+            role: 'Bride’s family',
+            avatar: 'src/assets/pic/avatar2.jpg',
+          },
+          {
+            id: 6,
+            name: 'Evelyn Carter',
+            role: 'Bride’s family',
+            avatar: 'src/assets/pic/avatar1.jpg',
           },
         ],
         memories: [
@@ -63,7 +87,7 @@ export const useEventStore = defineStore('event', {
             id: 4,
             name: 'Alice Johnson',
             role: 'Team Member',
-            avatar: '/assets/images/guest4.jpg',
+            avatar: '/assets/pic/avatar1.jpg',
           },
         ],
         memories: [

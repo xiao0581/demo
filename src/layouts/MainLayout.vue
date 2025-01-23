@@ -3,7 +3,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-    <q-footer class="custom-footer">
+    <q-footer v-if="!hideFooter" class="custom-footer">
       <q-toolbar class="custom-toolbar">
         <q-btn
           flat
@@ -47,7 +47,10 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
 const route = useRoute()
+const hideFooter = computed(() => route.meta.hideFooter)
 const isActive = (path: string): boolean => {
   return route.path === path
 }
