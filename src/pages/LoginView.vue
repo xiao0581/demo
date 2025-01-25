@@ -1,6 +1,7 @@
 <template>
   <q-page class="flex flex-center">
-    <q-card class="q-pa-md" style="width: 400px">
+    <div></div>
+    <q-card class="q-pa-md">
       <q-card-section>
         <div class="text-h6">Login</div>
       </q-card-section>
@@ -88,8 +89,17 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.loginTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
 .q-page {
   min-height: 100vh;
   background: #f5f5f5;
+}
+.q-card {
+  margin-top: 0;
+  border-radius: 20px;
+  width: 350px;
 }
 </style>

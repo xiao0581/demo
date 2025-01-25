@@ -13,7 +13,9 @@
       <div class="event-card-content">
         <h5 class="event-title">{{ event.name }}</h5>
         <div class="event-details">
-          <p class="event-time"><q-icon name="schedule" /> {{ event.date }}</p>
+          <p class="event-time">
+            <q-icon name="schedule" /> {{ event.startTime }} | {{ event.date }}
+          </p>
           <p class="event-location"><q-icon name="place" /> {{ event.location }}</p>
         </div>
         <div class="event-guests">
@@ -123,9 +125,9 @@ export default defineComponent({
   margin: 20px;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+.events-section h2 {
+  font-size: 1rem;
+  margin-bottom: 0px;
 }
 
 .event-card {
@@ -145,7 +147,7 @@ h2 {
 }
 
 .event-card-image {
-  height: 180px;
+  height: 150px;
   overflow: hidden;
   border-radius: 10%;
   margin: 16px 16px;
@@ -162,7 +164,7 @@ h2 {
 }
 
 .event-title {
-  margin-top: -8px;
+  margin-top: -30px;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 0;

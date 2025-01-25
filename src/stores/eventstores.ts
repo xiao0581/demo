@@ -18,6 +18,9 @@ interface Event {
   name: string
   date: string
   location: string
+  discription: string
+  startTime: string
+  endTime: string
   image: string
   guests: Guest[]
   memories: Memory[]
@@ -29,9 +32,13 @@ export const useEventStore = defineStore('event', {
       {
         id: 1,
         name: "Sarah's and John's Wedding",
-        date: '2025-01-24',
+        date: '2025-01-26',
+        startTime: '9:00 AM',
+        endTime: '11:00 PM',
         location: 'High Garden Hotel',
         image: 'src/assets/pic/wedding.jpg',
+        discription:
+          'Celebrate the union of this wonderful couple with an evening of love, joy, and unforgettable memories. Enjoy a beautiful ceremony, delightful reception, and heartfelt moments as we honor their special day. We look forward to sharing this magical occasion with you!',
         guests: [
           {
             id: 1,

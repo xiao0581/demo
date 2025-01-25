@@ -1,13 +1,12 @@
 <template>
   <div class="">
-    <h4>Message side......</h4>
+    <h5 class="MessageTitle">Message</h5>
   </div>
 </template>
-<script setup lang="ts">
-
-
-</script>
-<style lang="less" scoped>
-
+<script setup lang="ts"></script>
+<style scoped>
+.MessageTitle {
+  text-align: left;
+  font-weight: bold;
+}
 </style>
-
