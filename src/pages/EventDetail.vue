@@ -84,8 +84,8 @@
 import { defineComponent, computed, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useEventStore } from '../stores/eventstores'
-import L from 'leaflet' // 导入 Leaflet
-import 'leaflet/dist/leaflet.css' // 导入 Leaflet 样式
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
 
 interface Guest {
   id: number
