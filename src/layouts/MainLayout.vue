@@ -8,7 +8,7 @@
         <q-btn
           flat
           icon="sym_o_home"
-          to="/"
+          to="/home"
           class="toolbar-btn"
           :class="{ 'active-btn': isActive('/') }"
         />
@@ -36,7 +36,7 @@
         <q-btn
           flat
           icon="sym_o_person"
-          to="/login"
+          to="/"
           class="toolbar-btn"
           :class="{ 'active-btn': isActive('/login') }"
         />

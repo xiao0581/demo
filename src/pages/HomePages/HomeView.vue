@@ -42,7 +42,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useEventStore } from '../stores/eventstores'
+import { useEventStore } from 'src/stores/eventstores'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({

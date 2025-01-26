@@ -1,18 +1,20 @@
 <template>
   <q-page class="flex flex-center">
-    <div></div>
     <q-card class="q-pa-md">
       <q-card-section>
         <div class="text-h6">Login</div>
       </q-card-section>
 
       <q-card-section>
-        <q-form @submit.prevent="handleLogin">
+        <q-form @submit.prevent="handleLogin" class="form-container">
           <q-input
             v-model="username"
             label="Username"
             outlined
             required
+            rounded
+            style="width: 100%; max-width: 350px"
+            label-color="primary"
             :rules="[(val) => !!val || 'Username is required']"
           />
 
@@ -22,18 +24,24 @@
             type="password"
             outlined
             required
+            rounded
+            style="width: 100%; max-width: 350px"
+            label-color="primary"
             :rules="[(val) => !!val || 'Password is required']"
-            class="q-mt-md"
           />
 
           <q-btn
             type="submit"
             label="Login"
             color="primary"
-            class="q-mt-lg"
+            rounded
             :loading="loading"
             :disable="loading"
           />
+          <div class="signup-container">
+            <span>Don't have an account?</span>
+            <router-link to="/registers" class="signup-link">Sign Up</router-link>
+          </div>
         </q-form>
       </q-card-section>
     </q-card>
@@ -66,7 +74,7 @@ export default defineComponent({
           message: 'Login successful!',
         })
 
-        await router.push('/message')
+        await router.push('/')
       } catch (error: unknown) {
         const message = (error as Error).message || 'An unknown error occurred.'
         Notify.create({
@@ -89,17 +97,44 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.loginTitle {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
 .q-page {
   min-height: 100vh;
-  background: #f5f5f5;
+  background-image: url('src/assets/pic/login.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .q-card {
-  margin-top: 0;
+  margin-top: 200px;
   border-radius: 20px;
   width: 350px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.text-h6 {
+  color: #6a7bff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.q-btn {
+  width: 100%;
+  max-width: 250px;
 }
 </style>

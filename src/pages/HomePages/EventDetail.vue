@@ -1,7 +1,7 @@
 <template>
   <q-page class="event-details-page">
     <div class="event-header">
-      <q-btn flat round icon="arrow_back_ios" color="primary" class="back-btn" to="/" />
+      <q-btn flat round icon="arrow_back_ios" color="primary" class="back-btn" to="/home" />
       <q-img :src="event?.image" alt="Event Banner" class="event-image" />
       <h1>{{ event?.name }}</h1>
       <div class="event-info">
@@ -83,7 +83,7 @@
 <script lang="ts">
 import { defineComponent, computed, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { useEventStore } from '../stores/eventstores'
+import { useEventStore } from 'src/stores/eventstores'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
